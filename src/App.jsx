@@ -1,6 +1,10 @@
-function App() {
+import Post from "./Post"
+
+export function App() {
   return (
-    <span>Hello World</span>
+    <Post
+      author= "Eduardo Guerra"
+      content= "Conteudo do texto." />
   )
 }
 export default App

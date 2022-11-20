@@ -1,10 +1,15 @@
+import { Header } from "./components/Header";
 import Post from "./Post"
+import './global.css';
 
 export function App() {
   return (
-    <Post
-      author= "Eduardo Guerra"
-      content= "Conteudo do texto." />
+    <div>
+      <Header/>
+      <Post
+        author= "Eduardo Guerra"
+        content= "Conteudo do texto." />
+    </div>
   )
 }
 export default App

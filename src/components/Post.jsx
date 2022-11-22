@@ -2,21 +2,31 @@ import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export function Post(){
+
+export function Post({ author, publishedAt }){
+    const publishedDataFormatted = new Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).format(publishedAt);
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src='https://media-exp1.licdn.com/dms/image/C4E03AQGGZOo3Fg4aDQ/profile-displayphoto-shrink_800_800/0/1516509752581?e=1674691200&v=beta&t=x5kKe86BjnGl2gU4okqJne-kCPxftwwoTlm1ajJj700' />
+                    <Avatar src={author.avatarUrl} />
                     <div className={styles.authorInfo}>
-                        <strong>Eduardo J. Guerra</strong>
-                        <span>Web Developer</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
                 <time 
                     title='11 de maio as 03:13'
-                    dateTime='2022-05-11 08:13:00'>Publicado há 1h.</time>
+                    dateTime='2022-05-11 08:13:00'>Publicado há 1h.
+                    {publishedDataFormatted}
+                </time>
             </header>
 
             <div className={styles.content}>
